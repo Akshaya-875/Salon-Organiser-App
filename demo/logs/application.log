@@ -1,0 +1,255 @@
+2025-03-22 04:54:41.402  INFO 910 --- [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication using Java 17.0.12 on acadcedfdfacdacbbcebbdffebfabccffa-0 with PID 910 (/home/coder/project/workspace/demo/target/classes started by coder in /home/coder/project/workspace/demo)
+2025-03-22 04:54:41.407  INFO 910 --- [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-03-22 04:54:41.475  INFO 910 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-22 04:54:41.476  INFO 910 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-22 04:54:42.100  INFO 910 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-22 04:54:42.137  INFO 910 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 30 ms. Found 3 JPA repository interfaces.
+2025-03-22 04:54:42.707  INFO 910 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2025-03-22 04:54:42.714  INFO 910 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-22 04:54:42.715  INFO 910 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.79]
+2025-03-22 04:54:42.766  INFO 910 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-22 04:54:42.766  INFO 910 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1290 ms
+2025-03-22 04:54:42.917  INFO 910 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-22 04:54:42.948  INFO 910 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2025-03-22 04:54:43.051  INFO 910 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2025-03-22 04:54:43.108  INFO 910 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-22 04:54:43.261  INFO 910 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-22 04:54:43.271  INFO 910 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2025-03-22 04:54:43.722 DEBUG 910 --- [restartedMain] org.hibernate.SQL                        : alter table appointments drop foreign key FKrlbb09f329sfsmftrh7y0yxtk
+2025-03-22 04:54:43.748 DEBUG 910 --- [restartedMain] org.hibernate.SQL                        : alter table rewards drop foreign key FKsq7037t2sstrj37x5cmvb7lcl
+2025-03-22 04:54:43.759 DEBUG 910 --- [restartedMain] org.hibernate.SQL                        : drop table if exists appointments
+2025-03-22 04:54:43.767 DEBUG 910 --- [restartedMain] org.hibernate.SQL                        : drop table if exists customers
+2025-03-22 04:54:43.777 DEBUG 910 --- [restartedMain] org.hibernate.SQL                        : drop table if exists rewards
+2025-03-22 04:54:43.787 DEBUG 910 --- [restartedMain] org.hibernate.SQL                        : create table appointments (id bigint not null auto_increment, appointment_time datetime(6), service_name varchar(255), status varchar(255), customer_id bigint, primary key (id)) engine=InnoDB
+2025-03-22 04:54:43.802 DEBUG 910 --- [restartedMain] org.hibernate.SQL                        : create table customers (id bigint not null auto_increment, email varchar(255), password varchar(255), username varchar(255), primary key (id)) engine=InnoDB
+2025-03-22 04:54:43.817 DEBUG 910 --- [restartedMain] org.hibernate.SQL                        : create table rewards (id bigint not null auto_increment, name varchar(255), points integer not null, customer_id bigint, primary key (id)) engine=InnoDB
+2025-03-22 04:54:43.832 DEBUG 910 --- [restartedMain] org.hibernate.SQL                        : alter table appointments add constraint FKrlbb09f329sfsmftrh7y0yxtk foreign key (customer_id) references customers (id)
+2025-03-22 04:54:43.870 DEBUG 910 --- [restartedMain] org.hibernate.SQL                        : alter table rewards add constraint FKsq7037t2sstrj37x5cmvb7lcl foreign key (customer_id) references customers (id)
+2025-03-22 04:54:43.911  INFO 910 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-03-22 04:54:43.918  INFO 910 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-22 04:54:44.638  WARN 910 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-22 04:54:44.806 DEBUG 910 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-03-22 04:54:44.906 DEBUG 910 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 28 mappings in 'requestMappingHandlerMapping'
+2025-03-22 04:54:45.253 DEBUG 910 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2025-03-22 04:54:45.269 DEBUG 910 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-03-22 04:54:45.470  INFO 910 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-03-22 04:54:45.497  INFO 910 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2025-03-22 04:54:45.507  INFO 910 --- [restartedMain] com.example.demo.DemoApplication         : Started DemoApplication in 4.464 seconds (JVM running for 4.859)
+2025-03-22 04:54:53.412  INFO 910 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-22 04:54:53.412  INFO 910 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-03-22 04:54:53.413 DEBUG 910 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2025-03-22 04:54:53.413 DEBUG 910 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2025-03-22 04:54:53.413 DEBUG 910 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2025-03-22 04:54:53.415 DEBUG 910 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@69501adb
+2025-03-22 04:54:53.415 DEBUG 910 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@78b7d3ac
+2025-03-22 04:54:53.415 DEBUG 910 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-03-22 04:54:53.416  INFO 910 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2025-03-22 04:54:53.427 DEBUG 910 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/", parameters={}
+2025-03-22 04:54:53.438 DEBUG 910 --- [http-nio-8081-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-03-22 04:54:53.441 DEBUG 910 --- [http-nio-8081-exec-1] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2025-03-22 04:54:53.442 DEBUG 910 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2025-03-22 04:54:53.448 DEBUG 910 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2025-03-22 04:54:53.450 DEBUG 910 --- [http-nio-8081-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#errorHtml(HttpServletRequest, HttpServletResponse)
+2025-03-22 04:54:53.476 DEBUG 910 --- [http-nio-8081-exec-1] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, text/html;q=0.8]
+2025-03-22 04:54:53.482 DEBUG 910 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2025-03-22 04:54:53.830 DEBUG 910 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/favicon.ico", parameters={}
+2025-03-22 04:54:53.833 DEBUG 910 --- [http-nio-8081-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-03-22 04:54:53.835 DEBUG 910 --- [http-nio-8081-exec-2] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2025-03-22 04:54:53.835 DEBUG 910 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2025-03-22 04:54:53.836 DEBUG 910 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2025-03-22 04:54:53.837 DEBUG 910 --- [http-nio-8081-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-03-22 04:54:53.850 DEBUG 910 --- [http-nio-8081-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json;q=0.8', given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8] and supported [application/json, application/*+json, application/json, application/*+json]
+2025-03-22 04:54:53.850 DEBUG 910 --- [http-nio-8081-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Sat Mar 22 04:54:53 UTC 2025, status=404, error=Not Found, message=No message available,  (truncated)...]
+2025-03-22 04:54:53.885 DEBUG 910 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2025-03-22 04:54:58.573 DEBUG 910 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/swagger-initializer.js", parameters={}
+2025-03-22 04:54:58.575 DEBUG 910 --- [http-nio-8081-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2025-03-22 04:54:58.592 DEBUG 910 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-03-22 04:54:58.860 DEBUG 910 --- [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/v3/api-docs/swagger-config", parameters={}
+2025-03-22 04:54:58.861 DEBUG 910 --- [http-nio-8081-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.ui.SwaggerConfigResource#openapiJson(HttpServletRequest)
+2025-03-22 04:54:58.864 DEBUG 910 --- [http-nio-8081-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json]
+2025-03-22 04:54:58.864 DEBUG 910 --- [http-nio-8081-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing [{configUrl=/v3/api-docs/swagger-config, oauth2RedirectUrl=https://8081-acadcedfdfacdacbbcebbdffebfab (truncated)...]
+2025-03-22 04:54:58.865 DEBUG 910 --- [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-03-22 04:54:59.170 DEBUG 910 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/v3/api-docs", parameters={}
+2025-03-22 04:54:59.171 DEBUG 910 --- [http-nio-8081-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.api.OpenApiWebMvcResource#openapiJson(HttpServletRequest, String, Locale)
+2025-03-22 04:54:59.645  INFO 910 --- [http-nio-8081-exec-6] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 451 ms
+2025-03-22 04:54:59.660 DEBUG 910 --- [http-nio-8081-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, */*] and supported [application/json]
+2025-03-22 04:54:59.662 DEBUG 910 --- [http-nio-8081-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing [{123, 34, 111, 112, 101, 110, 97, 112, 105, 34, 58, 34, 51, 46, 48, 46, 49, 34, 44, 34, 105, 110, 10 (truncated)...]
+2025-03-22 04:54:59.663 DEBUG 910 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-03-22 05:40:00.963  INFO 910 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-22 05:40:00.965  INFO 910 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-03-22 05:40:00.967  INFO 910 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-03-22 05:46:57.094  INFO 910 --- [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication using Java 17.0.12 on acadcedfdfacdacbbcebbdffebfabccffa-0 with PID 910 (/home/coder/project/workspace/demo/target/classes started by coder in /home/coder/project/workspace/demo)
+2025-03-22 05:46:57.499  INFO 910 --- [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-03-22 05:46:57.535  INFO 910 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-22 05:46:57.535  INFO 910 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-22 05:46:57.968  INFO 910 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-22 05:46:58.016  INFO 910 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 41 ms. Found 3 JPA repository interfaces.
+2025-03-22 05:46:59.252  INFO 910 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2025-03-22 05:46:59.262  INFO 910 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-22 05:46:59.263  INFO 910 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.79]
+2025-03-22 05:46:59.343  INFO 910 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-22 05:46:59.344  INFO 910 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1809 ms
+2025-03-22 05:46:59.539  INFO 910 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-22 05:46:59.564  INFO 910 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2025-03-22 05:46:59.701  INFO 910 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2025-03-22 05:46:59.758  INFO 910 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-22 05:46:59.956  INFO 910 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-22 05:46:59.969  INFO 910 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2025-03-22 05:47:00.548 DEBUG 910 --- [restartedMain] org.hibernate.SQL                        : alter table appointments drop foreign key FKrlbb09f329sfsmftrh7y0yxtk
+2025-03-22 05:47:00.620 DEBUG 910 --- [restartedMain] org.hibernate.SQL                        : alter table rewards drop foreign key FKsq7037t2sstrj37x5cmvb7lcl
+2025-03-22 05:47:00.627 DEBUG 910 --- [restartedMain] org.hibernate.SQL                        : drop table if exists appointments
+2025-03-22 05:47:00.637 DEBUG 910 --- [restartedMain] org.hibernate.SQL                        : drop table if exists customers
+2025-03-22 05:47:00.647 DEBUG 910 --- [restartedMain] org.hibernate.SQL                        : drop table if exists rewards
+2025-03-22 05:47:00.657 DEBUG 910 --- [restartedMain] org.hibernate.SQL                        : create table appointments (id bigint not null auto_increment, appointment_time datetime(6), service_name varchar(255), status varchar(255), customer_id bigint, primary key (id)) engine=InnoDB
+2025-03-22 05:47:00.669 DEBUG 910 --- [restartedMain] org.hibernate.SQL                        : create table customers (id bigint not null auto_increment, email varchar(255), password varchar(255), username varchar(255), primary key (id)) engine=InnoDB
+2025-03-22 05:47:00.680 DEBUG 910 --- [restartedMain] org.hibernate.SQL                        : create table rewards (id bigint not null auto_increment, name varchar(255), points integer not null, customer_id bigint, primary key (id)) engine=InnoDB
+2025-03-22 05:47:00.693 DEBUG 910 --- [restartedMain] org.hibernate.SQL                        : alter table appointments add constraint FKrlbb09f329sfsmftrh7y0yxtk foreign key (customer_id) references customers (id)
+2025-03-22 05:47:00.726 DEBUG 910 --- [restartedMain] org.hibernate.SQL                        : alter table rewards add constraint FKsq7037t2sstrj37x5cmvb7lcl foreign key (customer_id) references customers (id)
+2025-03-22 05:47:00.761  INFO 910 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-03-22 05:47:00.770  INFO 910 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-22 05:47:01.713  WARN 910 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-22 05:47:01.927 DEBUG 910 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-03-22 05:47:02.042 DEBUG 910 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 28 mappings in 'requestMappingHandlerMapping'
+2025-03-22 05:47:02.447 DEBUG 910 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2025-03-22 05:47:02.456 DEBUG 910 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-03-22 05:47:02.620  INFO 910 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-03-22 05:47:02.642  INFO 910 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2025-03-22 05:47:02.650  INFO 910 --- [restartedMain] com.example.demo.DemoApplication         : Started DemoApplication in 5.81 seconds (JVM running for 6.149)
+2025-03-22 05:47:07.313  INFO 910 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-22 05:47:07.314  INFO 910 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-03-22 05:47:07.314 DEBUG 910 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2025-03-22 05:47:07.314 DEBUG 910 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2025-03-22 05:47:07.314 DEBUG 910 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2025-03-22 05:47:07.315 DEBUG 910 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@26df8ec5
+2025-03-22 05:47:07.316 DEBUG 910 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@b55154a
+2025-03-22 05:47:07.316 DEBUG 910 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-03-22 05:47:07.316  INFO 910 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-03-22 05:47:07.322 DEBUG 910 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/index.html", parameters={}
+2025-03-22 05:47:07.330 DEBUG 910 --- [http-nio-8081-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2025-03-22 05:47:07.340 DEBUG 910 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED
+2025-03-22 05:47:07.628 DEBUG 910 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/swagger-initializer.js", parameters={}
+2025-03-22 05:47:07.629 DEBUG 910 --- [http-nio-8081-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2025-03-22 05:47:07.649 DEBUG 910 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-03-22 05:47:07.929 DEBUG 910 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/v3/api-docs/swagger-config", parameters={}
+2025-03-22 05:47:07.930 DEBUG 910 --- [http-nio-8081-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.ui.SwaggerConfigResource#openapiJson(HttpServletRequest)
+2025-03-22 05:47:07.933 DEBUG 910 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/favicon-32x32.png", parameters={}
+2025-03-22 05:47:07.934 DEBUG 910 --- [http-nio-8081-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2025-03-22 05:47:07.936 DEBUG 910 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-03-22 05:47:07.941 DEBUG 910 --- [http-nio-8081-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json]
+2025-03-22 05:47:07.942 DEBUG 910 --- [http-nio-8081-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Writing [{configUrl=/v3/api-docs/swagger-config, oauth2RedirectUrl=https://8081-acadcedfdfacdacbbcebbdffebfab (truncated)...]
+2025-03-22 05:47:07.944 DEBUG 910 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-03-22 05:47:08.236 DEBUG 910 --- [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/v3/api-docs", parameters={}
+2025-03-22 05:47:08.236 DEBUG 910 --- [http-nio-8081-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.api.OpenApiWebMvcResource#openapiJson(HttpServletRequest, String, Locale)
+2025-03-22 05:47:08.703  INFO 910 --- [http-nio-8081-exec-5] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 458 ms
+2025-03-22 05:47:08.717 DEBUG 910 --- [http-nio-8081-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, */*] and supported [application/json]
+2025-03-22 05:47:08.719 DEBUG 910 --- [http-nio-8081-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing [{123, 34, 111, 112, 101, 110, 97, 112, 105, 34, 58, 34, 51, 46, 48, 46, 49, 34, 44, 34, 105, 110, 10 (truncated)...]
+2025-03-22 05:47:08.719 DEBUG 910 --- [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-03-22 05:47:14.124 DEBUG 910 --- [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/index.html", parameters={}
+2025-03-22 05:47:14.125 DEBUG 910 --- [http-nio-8081-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2025-03-22 05:47:14.126 DEBUG 910 --- [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED
+2025-03-22 05:47:14.408 DEBUG 910 --- [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/swagger-initializer.js", parameters={}
+2025-03-22 05:47:14.408 DEBUG 910 --- [http-nio-8081-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2025-03-22 05:47:14.410 DEBUG 910 --- [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-03-22 05:47:14.736 DEBUG 910 --- [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/v3/api-docs/swagger-config", parameters={}
+2025-03-22 05:47:14.736 DEBUG 910 --- [http-nio-8081-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.ui.SwaggerConfigResource#openapiJson(HttpServletRequest)
+2025-03-22 05:47:14.737 DEBUG 910 --- [http-nio-8081-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json]
+2025-03-22 05:47:14.737 DEBUG 910 --- [http-nio-8081-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Writing [{configUrl=/v3/api-docs/swagger-config, oauth2RedirectUrl=https://8081-acadcedfdfacdacbbcebbdffebfab (truncated)...]
+2025-03-22 05:47:14.738 DEBUG 910 --- [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-03-22 05:47:15.045 DEBUG 910 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/v3/api-docs", parameters={}
+2025-03-22 05:47:15.045 DEBUG 910 --- [http-nio-8081-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.api.OpenApiWebMvcResource#openapiJson(HttpServletRequest, String, Locale)
+2025-03-22 05:47:15.048 DEBUG 910 --- [http-nio-8081-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, */*] and supported [application/json]
+2025-03-22 05:47:15.050 DEBUG 910 --- [http-nio-8081-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing [{123, 34, 111, 112, 101, 110, 97, 112, 105, 34, 58, 34, 51, 46, 48, 46, 49, 34, 44, 34, 105, 110, 10 (truncated)...]
+2025-03-22 05:47:15.050 DEBUG 910 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-03-22 05:52:39.602 DEBUG 910 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : POST "/api/customers", parameters={}
+2025-03-22 05:52:39.602 DEBUG 910 --- [http-nio-8081-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.CustomerController#createCustomer(Customer)
+2025-03-22 05:52:39.610 DEBUG 910 --- [http-nio-8081-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [Customer [id=null, username=john_doe, email=john@example.com]]
+2025-03-22 05:52:39.616  INFO 910 --- [http-nio-8081-exec-4] com.example.demo.aspect.LoggingAspect    : Method Customer com.example.demo.service.CustomerService.saveCustomer(Customer) execution started.
+2025-03-22 05:52:39.616  INFO 910 --- [http-nio-8081-exec-4] com.example.demo.aspect.LoggingAspect    : Method execution started.
+2025-03-22 05:52:39.644 DEBUG 910 --- [http-nio-8081-exec-4] org.hibernate.SQL                        : insert into customers (email, password, username) values (?, ?, ?)
+2025-03-22 05:52:39.651 TRACE 910 --- [http-nio-8081-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [john@example.com]
+2025-03-22 05:52:39.651 TRACE 910 --- [http-nio-8081-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [null]
+2025-03-22 05:52:39.651 TRACE 910 --- [http-nio-8081-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [john_doe]
+2025-03-22 05:52:39.670  INFO 910 --- [http-nio-8081-exec-4] com.example.demo.aspect.LoggingAspect    : Method execution completed.
+2025-03-22 05:52:39.670  INFO 910 --- [http-nio-8081-exec-4] com.example.demo.aspect.LoggingAspect    : Method Customer com.example.demo.service.CustomerService.saveCustomer(Customer) execution completed in 55 ms.
+2025-03-22 05:52:39.683 DEBUG 910 --- [http-nio-8081-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2025-03-22 05:52:39.684 DEBUG 910 --- [http-nio-8081-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [Customer [id=1, username=john_doe, email=john@example.com]]
+2025-03-22 05:52:39.687 DEBUG 910 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2025-03-22 05:52:53.986 DEBUG 910 --- [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : POST "/api/customers", parameters={}
+2025-03-22 05:52:53.986 DEBUG 910 --- [http-nio-8081-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.CustomerController#createCustomer(Customer)
+2025-03-22 05:52:53.987 DEBUG 910 --- [http-nio-8081-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [Customer [id=null, username=john_doe, email=john@example.com]]
+2025-03-22 05:52:53.988  INFO 910 --- [http-nio-8081-exec-5] com.example.demo.aspect.LoggingAspect    : Method Customer com.example.demo.service.CustomerService.saveCustomer(Customer) execution started.
+2025-03-22 05:52:53.988  INFO 910 --- [http-nio-8081-exec-5] com.example.demo.aspect.LoggingAspect    : Method execution started.
+2025-03-22 05:52:53.988 DEBUG 910 --- [http-nio-8081-exec-5] org.hibernate.SQL                        : insert into customers (email, password, username) values (?, ?, ?)
+2025-03-22 05:52:53.989 TRACE 910 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [john@example.com]
+2025-03-22 05:52:53.989 TRACE 910 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [null]
+2025-03-22 05:52:53.989 TRACE 910 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [john_doe]
+2025-03-22 05:52:53.990  INFO 910 --- [http-nio-8081-exec-5] com.example.demo.aspect.LoggingAspect    : Method execution completed.
+2025-03-22 05:52:53.990  INFO 910 --- [http-nio-8081-exec-5] com.example.demo.aspect.LoggingAspect    : Method Customer com.example.demo.service.CustomerService.saveCustomer(Customer) execution completed in 2 ms.
+2025-03-22 05:52:53.994 DEBUG 910 --- [http-nio-8081-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2025-03-22 05:52:53.995 DEBUG 910 --- [http-nio-8081-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [Customer [id=2, username=john_doe, email=john@example.com]]
+2025-03-22 05:52:53.995 DEBUG 910 --- [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2025-03-22 05:53:07.061 DEBUG 910 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/api/customers/2", parameters={}
+2025-03-22 05:53:07.061 DEBUG 910 --- [http-nio-8081-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.CustomerController#getCustomerById(Long)
+2025-03-22 05:53:07.062  INFO 910 --- [http-nio-8081-exec-6] com.example.demo.aspect.LoggingAspect    : Method Optional com.example.demo.service.CustomerService.getCustomerById(Long) execution started.
+2025-03-22 05:53:07.062  INFO 910 --- [http-nio-8081-exec-6] com.example.demo.aspect.LoggingAspect    : Method execution started.
+2025-03-22 05:53:07.070 DEBUG 910 --- [http-nio-8081-exec-6] org.hibernate.SQL                        : select customer0_.id as id1_1_0_, customer0_.email as email2_1_0_, customer0_.password as password3_1_0_, customer0_.username as username4_1_0_ from customers customer0_ where customer0_.id=?
+2025-03-22 05:53:07.071 TRACE 910 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [2]
+2025-03-22 05:53:07.078 DEBUG 910 --- [http-nio-8081-exec-6] org.hibernate.SQL                        : select reward0_.id as id1_2_0_, reward0_.customer_id as customer4_2_0_, reward0_.name as name2_2_0_, reward0_.points as points3_2_0_ from rewards reward0_ where reward0_.customer_id=?
+2025-03-22 05:53:07.079 TRACE 910 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [2]
+2025-03-22 05:53:07.081  INFO 910 --- [http-nio-8081-exec-6] com.example.demo.aspect.LoggingAspect    : Method execution completed.
+2025-03-22 05:53:07.081  INFO 910 --- [http-nio-8081-exec-6] com.example.demo.aspect.LoggingAspect    : Method Optional com.example.demo.service.CustomerService.getCustomerById(Long) execution completed in 19 ms.
+2025-03-22 05:53:07.082 DEBUG 910 --- [http-nio-8081-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2025-03-22 05:53:07.082 DEBUG 910 --- [http-nio-8081-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [Customer [id=2, username=john_doe, email=john@example.com]]
+2025-03-22 05:53:07.083 DEBUG 910 --- [http-nio-8081-exec-6] org.hibernate.SQL                        : select appointmen0_.customer_id as customer5_0_0_, appointmen0_.id as id1_0_0_, appointmen0_.id as id1_0_1_, appointmen0_.appointment_time as appointm2_0_1_, appointmen0_.customer_id as customer5_0_1_, appointmen0_.service_name as service_3_0_1_, appointmen0_.status as status4_0_1_ from appointments appointmen0_ where appointmen0_.customer_id=?
+2025-03-22 05:53:07.083 TRACE 910 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [2]
+2025-03-22 05:53:07.086 DEBUG 910 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-03-22 05:53:41.638 DEBUG 910 --- [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : POST "/api/appointments", parameters={}
+2025-03-22 05:53:41.638 DEBUG 910 --- [http-nio-8081-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.AppointmentController#createAppointment(Appointment)
+2025-03-22 05:53:41.644 DEBUG 910 --- [http-nio-8081-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [Appointment [id=null, serviceName=Haircut, appointmentTime=2025-01-12T10:30, status=Pending]]
+2025-03-22 05:53:41.645  INFO 910 --- [http-nio-8081-exec-9] com.example.demo.aspect.LoggingAspect    : Method Appointment com.example.demo.service.AppointmentService.saveAppointment(Appointment) execution started.
+2025-03-22 05:53:41.645  INFO 910 --- [http-nio-8081-exec-9] com.example.demo.aspect.LoggingAspect    : Method execution started.
+2025-03-22 05:53:41.652 DEBUG 910 --- [http-nio-8081-exec-9] org.hibernate.SQL                        : insert into appointments (appointment_time, customer_id, service_name, status) values (?, ?, ?, ?)
+2025-03-22 05:53:41.653 TRACE 910 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2025-01-12T10:30]
+2025-03-22 05:53:41.655 TRACE 910 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BIGINT] - [null]
+2025-03-22 05:53:41.655 TRACE 910 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [Haircut]
+2025-03-22 05:53:41.655 TRACE 910 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [Pending]
+2025-03-22 05:53:41.658  INFO 910 --- [http-nio-8081-exec-9] com.example.demo.aspect.LoggingAspect    : Method execution completed.
+2025-03-22 05:53:41.658  INFO 910 --- [http-nio-8081-exec-9] com.example.demo.aspect.LoggingAspect    : Method Appointment com.example.demo.service.AppointmentService.saveAppointment(Appointment) execution completed in 13 ms.
+2025-03-22 05:53:41.662 DEBUG 910 --- [http-nio-8081-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2025-03-22 05:53:41.663 DEBUG 910 --- [http-nio-8081-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [Appointment [id=1, serviceName=Haircut, appointmentTime=2025-01-12T10:30, status=Pending]]
+2025-03-22 05:53:41.664 DEBUG 910 --- [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2025-03-22 05:54:23.288 DEBUG 910 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/api/appointments", parameters={}
+2025-03-22 05:54:23.289 DEBUG 910 --- [http-nio-8081-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.AppointmentController#getAllAppointments()
+2025-03-22 05:54:23.289  INFO 910 --- [http-nio-8081-exec-1] com.example.demo.aspect.LoggingAspect    : Method List com.example.demo.service.AppointmentService.getAllAppointments() execution started.
+2025-03-22 05:54:23.289  INFO 910 --- [http-nio-8081-exec-1] com.example.demo.aspect.LoggingAspect    : Method execution started.
+2025-03-22 05:54:23.296 DEBUG 910 --- [http-nio-8081-exec-1] org.hibernate.SQL                        : select appointmen0_.id as id1_0_, appointmen0_.appointment_time as appointm2_0_, appointmen0_.customer_id as customer5_0_, appointmen0_.service_name as service_3_0_, appointmen0_.status as status4_0_ from appointments appointmen0_
+2025-03-22 05:54:23.299  INFO 910 --- [http-nio-8081-exec-1] com.example.demo.aspect.LoggingAspect    : Method execution completed.
+2025-03-22 05:54:23.299  INFO 910 --- [http-nio-8081-exec-1] com.example.demo.aspect.LoggingAspect    : Method List com.example.demo.service.AppointmentService.getAllAppointments() execution completed in 10 ms.
+2025-03-22 05:54:23.300 DEBUG 910 --- [http-nio-8081-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2025-03-22 05:54:23.300 DEBUG 910 --- [http-nio-8081-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[Appointment [id=1, serviceName=Haircut, appointmentTime=2025-01-12T10:30, status=Pending]]]
+2025-03-22 05:54:23.300 DEBUG 910 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-03-22 05:55:15.325 DEBUG 910 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/api/customers/1", parameters={}
+2025-03-22 05:55:15.325 DEBUG 910 --- [http-nio-8081-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.CustomerController#getCustomerById(Long)
+2025-03-22 05:55:15.326  INFO 910 --- [http-nio-8081-exec-4] com.example.demo.aspect.LoggingAspect    : Method Optional com.example.demo.service.CustomerService.getCustomerById(Long) execution started.
+2025-03-22 05:55:15.326  INFO 910 --- [http-nio-8081-exec-4] com.example.demo.aspect.LoggingAspect    : Method execution started.
+2025-03-22 05:55:15.327 DEBUG 910 --- [http-nio-8081-exec-4] org.hibernate.SQL                        : select customer0_.id as id1_1_0_, customer0_.email as email2_1_0_, customer0_.password as password3_1_0_, customer0_.username as username4_1_0_ from customers customer0_ where customer0_.id=?
+2025-03-22 05:55:15.327 TRACE 910 --- [http-nio-8081-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2025-03-22 05:55:15.328 DEBUG 910 --- [http-nio-8081-exec-4] org.hibernate.SQL                        : select reward0_.id as id1_2_0_, reward0_.customer_id as customer4_2_0_, reward0_.name as name2_2_0_, reward0_.points as points3_2_0_ from rewards reward0_ where reward0_.customer_id=?
+2025-03-22 05:55:15.328 TRACE 910 --- [http-nio-8081-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2025-03-22 05:55:15.329  INFO 910 --- [http-nio-8081-exec-4] com.example.demo.aspect.LoggingAspect    : Method execution completed.
+2025-03-22 05:55:15.329  INFO 910 --- [http-nio-8081-exec-4] com.example.demo.aspect.LoggingAspect    : Method Optional com.example.demo.service.CustomerService.getCustomerById(Long) execution completed in 3 ms.
+2025-03-22 05:55:15.330 DEBUG 910 --- [http-nio-8081-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2025-03-22 05:55:15.330 DEBUG 910 --- [http-nio-8081-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [Customer [id=1, username=john_doe, email=john@example.com]]
+2025-03-22 05:55:15.330 DEBUG 910 --- [http-nio-8081-exec-4] org.hibernate.SQL                        : select appointmen0_.customer_id as customer5_0_0_, appointmen0_.id as id1_0_0_, appointmen0_.id as id1_0_1_, appointmen0_.appointment_time as appointm2_0_1_, appointmen0_.customer_id as customer5_0_1_, appointmen0_.service_name as service_3_0_1_, appointmen0_.status as status4_0_1_ from appointments appointmen0_ where appointmen0_.customer_id=?
+2025-03-22 05:55:15.330 TRACE 910 --- [http-nio-8081-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2025-03-22 05:55:15.331 DEBUG 910 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-03-22 05:55:26.455 DEBUG 910 --- [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/api/appointments", parameters={}
+2025-03-22 05:55:26.455 DEBUG 910 --- [http-nio-8081-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.Controller.AppointmentController#getAllAppointments()
+2025-03-22 05:55:26.456  INFO 910 --- [http-nio-8081-exec-5] com.example.demo.aspect.LoggingAspect    : Method List com.example.demo.service.AppointmentService.getAllAppointments() execution started.
+2025-03-22 05:55:26.457  INFO 910 --- [http-nio-8081-exec-5] com.example.demo.aspect.LoggingAspect    : Method execution started.
+2025-03-22 05:55:26.458 DEBUG 910 --- [http-nio-8081-exec-5] org.hibernate.SQL                        : select appointmen0_.id as id1_0_, appointmen0_.appointment_time as appointm2_0_, appointmen0_.customer_id as customer5_0_, appointmen0_.service_name as service_3_0_, appointmen0_.status as status4_0_ from appointments appointmen0_
+2025-03-22 05:55:26.459  INFO 910 --- [http-nio-8081-exec-5] com.example.demo.aspect.LoggingAspect    : Method execution completed.
+2025-03-22 05:55:26.459  INFO 910 --- [http-nio-8081-exec-5] com.example.demo.aspect.LoggingAspect    : Method List com.example.demo.service.AppointmentService.getAllAppointments() execution completed in 3 ms.
+2025-03-22 05:55:26.460 DEBUG 910 --- [http-nio-8081-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2025-03-22 05:55:26.460 DEBUG 910 --- [http-nio-8081-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[Appointment [id=1, serviceName=Haircut, appointmentTime=2025-01-12T10:30, status=Pending]]]
+2025-03-22 05:55:26.460 DEBUG 910 --- [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
